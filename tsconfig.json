@@ -24,6 +24,7 @@
       "@helper/*": ["./src/helper/*"],
       "@infra/*": ["./src/infra/*"],
       "@test/*": ["./test/*"]
-    }
+    },
+    "resolveJsonModule": true
   }
 }
