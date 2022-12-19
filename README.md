@@ -21,3 +21,8 @@ npx prisma studio
 ``` npm
 npm i class-validator class-transformer
 ```
+
+``` npm
+npm i @nestjs/microservices
+npm i kafkajs
+```
