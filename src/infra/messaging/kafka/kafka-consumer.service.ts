@@ -9,14 +9,8 @@ export class KafkaConsumerService
   constructor() {
     super({
       client: {
-        clientId: 'notifications',
-        brokers: ['server:port'],
-        sasl: {
-          mechanism: 'scram-sha-256',
-          username: '',
-          password: 'pass',
-        },
-        ssl: true,
+        clientId: 'notification.notifications-consumer',
+        brokers: ['localhost:9092'],
       },
     });
   }

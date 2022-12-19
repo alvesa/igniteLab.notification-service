@@ -4,13 +4,7 @@ import { randomUUID } from 'node:crypto';
 async function bootstrap() {
   const kafka = new Kafka({
     clientId: 'kafka-producer',
-    brokers: [''],
-    sasl: {
-      mechanism: 'scram-sha-256',
-      username: '',
-      password: '',
-    },
-    ssl: true,
+    brokers: ['localhost:9092'],
   });
 
   const producer = kafka.producer();
@@ -18,7 +12,7 @@ async function bootstrap() {
   await producer.connect();
 
   await producer.send({
-    topic: 'notifcations.send-notifcation',
+    topic: 'notification.send-notification',
     messages: [
       {
         value: JSON.stringify({
@@ -29,4 +23,13 @@ async function bootstrap() {
       },
     ],
   });
+
+  await producer.disconnect();
 }
+
+bootstrap()
+  .then((x) => {
+    console.log(x);
+    console.log('test');
+  })
+  .catch((err) => console.log(err));
